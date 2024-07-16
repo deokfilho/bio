@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deok Filho - Bio</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1, h2 {
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-top: 4rem;
+        }
+        p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #ffffff;
+        }
+        .timeline-item {
+            margin-bottom: 6rem;
+            position: relative;
+        }
+        .timeline-content {
+            width: 100%;
+            padding: 1rem;
+            background: #1e1e1e;
+            border-radius: 8px;
+        }
+        .timeline-image {
+            width: 80%;
+            margin: 2rem auto;
+            display: block;
+        }
+        .timeline-text {
+            padding: 2rem;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deok Filho</h1>
+        <p>13 years of curiosity, growth, and love. Let me start with Brazil...</p>
+
+        <img src="/api/placeholder/1200/600" alt="Your Image">
+
+        <h2>My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="/api/placeholder/1000/600" alt="2020 Image" class="timeline-image">
+                    <div class="timeline-text">
+                        <h3>2020</h3>
+                        <p>Started my career in tech. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="/api/placeholder/1000/600" alt="2022 Image" class="timeline-image">
+                    <div class="timeline-text">
+                        <h3>2022</h3>
+                        <p>Launched my first startup. Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="/api/placeholder/1000/600" alt="2024 Image" class="timeline-image">
+                    <div class="timeline-text">
+                        <h3>2024</h3>
+                        <p>Current position and achievements. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Projects</h2>
+        <img src="/api/placeholder/1200/600" alt="Project Image">
+        <p>Description of your most significant project or achievement.</p>
+
+        <h2>Contact</h2>
+        <p>Feel free to reach out to me at d@deok.ai or follow/connect with me on <a href="https://www.linkedin.com/in/deokcelmo-filho/">Linkedin</a> or <a href="https://x.com/deok_filho">Twitter</a></p>
+    </div>
+</body>
+</html>
