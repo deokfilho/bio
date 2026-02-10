@@ -3,188 +3,554 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deok Filho - WHOIS</title>
+    <title>Deok Filho - Product Manager</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <meta name="description" content="Meet Deok Filho, and learn about his background and his latest work.">
+    <meta name="description" content="Product Manager at CoreWeave focused on HPC and AI infrastructure. Former Google Cloud specialist in AI/ML infrastructure and GPU acceleration.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-tertiary: #707070;
+            --accent: #60dbfb;
+            --accent-dim: #3ba7c4;
+            --border: #2a2a2a;
+            --card-hover: #1f1f1f;
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: var(--spacing-lg);
         }
-        h1, h2 {
-            font-weight: 700;
+
+        /* Header */
+        header {
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
         }
+
+        .header-content {
+            display: flex;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .header-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .header-picture {
+            flex-shrink: 0;
+            width: 140px;
+            height: 140px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+
         h1 {
-            font-size: 4rem;
-            margin-bottom: 2rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
+
+        .tagline {
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .bio-snippet {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+            margin-top: var(--spacing-xs);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-sm);
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-dim);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-picture {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Section Headers */
         h2 {
-            font-size: 2.5rem;
-            margin-top: 4rem;
+            font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            margin: var(--spacing-lg) 0 var(--spacing-md);
+            letter-spacing: -0.01em;
         }
-        p {
-            font-size: 1.25rem;
-            line-height: 1.6;
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
         }
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 2px;
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
             height: 100%;
-            background: #ffffff;
         }
-        .timeline-item {
-            margin-bottom: 6rem;
-            position: relative;
+
+        .card:hover {
+            background: var(--card-hover);
+            border-color: var(--accent-dim);
+            transform: translateY(-2px);
         }
-        .timeline-content {
+
+        .card-content {
+            padding: var(--spacing-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+            height: 100%;
+        }
+
+        .card-thumbnail {
             width: 100%;
-            padding: 1rem;
-            background: #1e1e1e;
-            border-radius: 8px;
-        }
-        .timeline-image {
-            width: 80%;
-            margin: 2rem auto;
+            height: 140px;
+            object-fit: cover;
             display: block;
         }
-        .timeline-text {
-            padding: 2rem;
+
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
         }
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: auto;
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-primary);
         }
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: auto;
+
+        .card:hover .card-title {
+            color: var(--accent);
         }
-        .timeline-item::before {
-            content: '';
+
+        .card-meta {
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .card-description {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: var(--bg-secondary);
+            color: var(--accent);
+            padding: 0.125rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-authors {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+
+        /* Video Embed */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .video-wrapper iframe {
             position: absolute;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            background: #ffffff;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        .timeline-item:nth-child(odd)::before {
-            right: -10px;
-        }
-        .timeline-item:nth-child(even)::before {
-            left: -10px;
-        }
-        img {
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            margin-bottom: 2rem;
-            border-radius: 8px;
+            height: 100%;
+        }
+
+        /* Suspicious Button */
+        .suspicious-button-container {
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+        }
+
+        .suspicious-button {
+            background: linear-gradient(135deg, #ff0080, #ff8c00, #40e0d0);
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+            border: 3px dashed #ff00ff;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md) var(--spacing-lg);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(64, 224, 208, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .suspicious-button:hover {
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(64, 224, 208, 0.5);
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hidden-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .hidden-section.revealed {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            color: var(--text-tertiary);
+            border-top: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: var(--spacing-md);
+            }
+
+            header {
+                padding: var(--spacing-md) 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Deok Filho</h1>
-        <p>13 years of curiosity, growth, and love. Let me start with Brazil...</p>
+        <header>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Deok Filho</h1>
+                    <p class="tagline">Senior Product Manager at CoreWeave, building infrastructure that powers the future of intelligence. Leading SUNK (Slurm on Kubernetes) — bringing HPC to cloud-native environments.</p>
+                    <p class="bio-snippet">Born in Brazil, grew up in family business → Northwestern Engineering → Google Cloud → CoreWeave.</p>
+                    <div class="contact-links">
+                        <a href="mailto:d@deok.ai">d@deok.ai</a>
+                        <a href="https://www.linkedin.com/in/deokcelmo-filho/" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://x.com/deok_filho" target="_blank" rel="noopener">Twitter</a>
+                        <a href="https://docs.coreweave.com/products/sunk" target="_blank" rel="noopener">SUNK Docs</a>
+                    </div>
+                </div>
+                <img src="profile_picture.jpeg" alt="Deok Filho" class="header-picture">
+            </div>
+        </header>
 
-        <img src="/bio_main_image.png" alt="Deok Filho - Background">
+        <!-- Projects & Publications -->
+        <section>
+            <h2>Projects & Publications</h2>
+            <div class="card-grid">
+                <a href="https://www.coreweave.com/blog/introducing-automated-user-provisioning-and-sunk-user-provisioning" target="_blank" rel="noopener" class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Product Launch</div>
+                            <h3 class="card-title">Automated User Provisioning for Slurm Clusters</h3>
+                            <div class="card-meta">November 20, 2025 • CoreWeave</div>
+                        </div>
+                        <p class="card-description">Industry-first automation synchronizing enterprise identities into SUNK clusters using SCIM protocols.</p>
+                        <div class="card-authors">By Deok Filho, Andy Manoske</div>
+                    </div>
+                </a>
 
-        <h2>My Journey</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <img src="/api/placeholder/1000/600" alt="2020 Image" class="timeline-image">
-                    <div class="timeline-text">
-                        <h3>2011: Started to work for my dad</h3>
-                        <p>He owned a small plastic card manufacturing business. There, I learned about inventiveness, and resiliency.</p>
+                <a href="https://www.coreweave.com/blog/scaling-reinforcement-learning-with-torchforge-on-coreweave-cloud" target="_blank" rel="noopener" class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Blog Post</div>
+                            <h3 class="card-title">Scaling Reinforcement Learning with torchforge on CoreWeave Cloud</h3>
+                            <div class="card-meta">October 22, 2025 • CoreWeave Blog</div>
+                        </div>
+                        <p class="card-description">Meta, Stanford, and CoreWeave partnership achieving post-training runs on 512 H100 GPUs with improved efficiency.</p>
+                        <div class="card-authors">By Deok Filho, Aaron Batilo</div>
                     </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <img src="/api/placeholder/1000/600" alt="2024 Image" class="timeline-image">
-                    <div class="timeline-text">
-                        <h3>2013: Willed my way to the U.S.</h3>
-                        <p>Captivated by America's wonders, I yearned to transplant. King Abdullah's .<a href="https://vimeo.com/33285850">boarding school tale</a> became my blueprint for an ocean-spanning leap.</p>
+                </a>
+
+                <a href="https://cdn.prod.website-files.com/62bc66d283fd9c34ffec780a/689fa33a0e99f19c11c8ecbe_CoreWeave%20Training%20Benchmarks%20Whitepaper%20August%202025.pdf" target="_blank" rel="noopener" class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Whitepaper</div>
+                            <h3 class="card-title">CoreWeave Training Benchmarks Whitepaper</h3>
+                            <div class="card-meta">August 2025 • CoreWeave</div>
+                        </div>
+                        <p class="card-description">Comprehensive analysis of AI training performance benchmarks and optimization strategies for large-scale GPU clusters.</p>
                     </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <img src="/api/placeholder/1000/600" alt="2022 Image" class="timeline-image">
-                    <div class="timeline-text">
-                        <h3>2017: Built my first product</h3>
-                        <p>Built my first productExcited about the possibility of enabling a disabled player to get back to video games, I designed, built, and patented a single-hand Xbox controller.</p>
+                </a>
+
+                <a href="https://wandb.ai/wandb_fc/product-announcements-fc/reports/Introducing-W-B-Inference-powered-by-CoreWeave--VmlldzoxMzI1NjU0MQ" target="_blank" rel="noopener" class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Product Launch</div>
+                            <h3 class="card-title">W&B Inference powered by CoreWeave</h3>
+                            <div class="card-meta">June 17, 2025 • Weights & Biases</div>
+                        </div>
+                        <p class="card-description">Seamless CoreWeave integration enabling ML teams to discover and evaluate open-source models within W&B.</p>
                     </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <img src="/api/placeholder/1000/600" alt="2024 Image" class="timeline-image">
-                    <div class="timeline-text">
-                        <h3>2018: First solo run in the real world</h3>
-                        <p>My parents won a big contract to manufacture chips, and they needed help. I resolved a major quality complaint, and beat the monthly production record.</p>
+                </a>
+
+                <a href="https://coreweave.com/blog/coreweave-nvidia-and-ibm-set-mlperf-record-with-largest-nvidia-gb200-blackwell-cluster-achieving-over-2x-faster-training" target="_blank" rel="noopener" class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Blog Post</div>
+                            <h3 class="card-title">MLPerf Record with NVIDIA GB200 Blackwell Cluster</h3>
+                            <div class="card-meta">June 4, 2025 • CoreWeave</div>
+                        </div>
+                        <p class="card-description">Largest-ever MLPerf submission with 2,496 NVIDIA Blackwell GPUs achieving 2x faster training at 91% scaling efficiency.</p>
                     </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <img src="/api/placeholder/1000/600" alt="2024 Image" class="timeline-image">
-                    <div class="timeline-text">
-                        <h3>2019: Product number #2</h3>
-                        <p>At Brazil's largest, and now bankrupted retailer. I wanted to enable retail on the go. So I built a platform that let small business owners track inventory and take payment on their phone.</p>
+                </a>
+
+                <a href="https://design.northwestern.edu/projects/profiles/incontrol.html" target="_blank" rel="noopener" class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Academic Project</div>
+                            <h3 class="card-title">inControl - Accessible Gaming Controller</h3>
+                            <div class="card-meta">Northwestern Engineering</div>
+                        </div>
+                        <p class="card-description">One-handed video game controller for patients with hemiplegia with provisional patent filed.</p>
+                        <div class="card-authors">Northwestern Engineering / Shirley Ryan AbilityLab</div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <img src="/api/placeholder/1000/600" alt="2024 Image" class="timeline-image">
-                    <div class="timeline-text">
-                        <h3>2019: Semester in China</h3>
-                        <p>Developed my Mandarin skills further, sought partnerships for my family business, and got offered a job.</p>
+        </section>
+
+        <!-- Official Youtube stuff -->
+        <section>
+            <h2>Official Youtube stuff</h2>
+            <div class="card-grid">
+                <a href="https://www.youtube.com/watch?v=78kf6J0xHmo" target="_blank" rel="noopener" class="card">
+                    <img src="https://img.youtube.com/vi/78kf6J0xHmo/maxresdefault.jpg" alt="How to Measure and Optimize AI Infrastructure for Large-Scale Training" class="card-thumbnail">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Video</div>
+                            <h3 class="card-title">How to Measure and Optimize AI Infrastructure for Large-Scale Training</h3>
+                            <div class="card-meta">CoreWeave</div>
+                        </div>
+                        <p class="card-description">Discussion on achieving 20% more throughput and 97-98% utilization through optimization techniques.</p>
+                        <div class="card-authors">With Wes Brown, Distinguished Engineer at CoreWeave</div>
                     </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <img src="/api/placeholder/1000/600" alt="2024 Image" class="timeline-image">
-                    <div class="timeline-text">
-                        <h3>2020: Google</h3>
-                        <p>Having been hired for the mission to fuel Google Cloud growth, I started that journey as a networking support engineer doing packet inspections, and diagnosing interconnect issues.</p>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=1qCVUWOIywc" target="_blank" rel="noopener" class="card">
+                    <img src="https://img.youtube.com/vi/1qCVUWOIywc/maxresdefault.jpg" alt="SUNK User Provisioning Demo" class="card-thumbnail">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Video</div>
+                            <h3 class="card-title">SUNK User Provisioning Demo</h3>
+                            <div class="card-meta">Google Cloud</div>
+                        </div>
+                        <p class="card-description">Demonstration of automated user provisioning for HPC workload management.</p>
                     </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <img src="/api/placeholder/1000/600" alt="2024 Image" class="timeline-image">
-                    <div class="timeline-text">
-                        <h3>2022: Burn GPU Burn, Disco Inferno</h3>
-                        <p>I was in the middle of the GPU gold rush closing very large contracts at Google Cloud, and helping startups adopt Gen AI.</p>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=rPZyJjkVb8k" target="_blank" rel="noopener" class="card">
+                    <img src="https://img.youtube.com/vi/rPZyJjkVb8k/maxresdefault.jpg" alt="Networking Configurations on Google Cloud" class="card-thumbnail">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Video</div>
+                            <h3 class="card-title">Networking Configurations on Google Cloud</h3>
+                            <div class="card-meta">Google Cloud</div>
+                        </div>
+                        <p class="card-description">Technical deep dive on networking configurations and best practices for cloud infrastructure.</p>
                     </div>
-                </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=xIaaGef1QvI" target="_blank" rel="noopener" class="card">
+                    <img src="https://img.youtube.com/vi/xIaaGef1QvI/maxresdefault.jpg" alt="Configuring Cloud Operations on Google Cloud" class="card-thumbnail">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Video</div>
+                            <h3 class="card-title">Configuring Cloud Operations on Google Cloud</h3>
+                            <div class="card-meta">Google Cloud</div>
+                        </div>
+                        <p class="card-description">Comprehensive guide to setting up and managing cloud operations for production workloads.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=mwcAjZXZrjg" target="_blank" rel="noopener" class="card">
+                    <img src="https://img.youtube.com/vi/mwcAjZXZrjg/maxresdefault.jpg" alt="API management with Apigee" class="card-thumbnail">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Video</div>
+                            <h3 class="card-title">API management with Apigee</h3>
+                            <div class="card-meta">Google Cloud</div>
+                        </div>
+                        <p class="card-description">In-depth exploration of API management patterns and implementation strategies using Apigee.</p>
+                    </div>
+                </a>
             </div>
+        </section>
+
+        <!-- Suspicious Button -->
+        <div class="suspicious-button-container">
+            <button class="suspicious-button" onclick="revealSecretSection()">
+                I'm very curious about this guy's life and cannot resist the urge to click this shady button to see what's behind it
+            </button>
         </div>
 
-        <!-- <h2>Projects</h2>
-        <img src="/api/placeholder/1200/600" alt="Project Image">
-        <p>Description of your most significant project or achievement.</p> -->
+        <!-- Unofficial YouTube Stuff (Hidden by default) -->
+        <section id="unofficial-section" class="hidden-section">
+            <h2>Unofficial YouTube Stuff (in Portuguese 🇧🇷)</h2>
+            <div class="card-grid">
+                <a href="https://www.youtube.com/watch?v=nHkbrQ6GlFY" target="_blank" rel="noopener" class="card">
+                    <img src="https://img.youtube.com/vi/nHkbrQ6GlFY/maxresdefault.jpg" alt="Unofficial Video 1" class="card-thumbnail">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Video</div>
+                            <h3 class="card-title">Unofficial Content 1</h3>
+                            <div class="card-meta">YouTube</div>
+                        </div>
+                        <p class="card-description">Behind the scenes content from Deok's personal collection.</p>
+                    </div>
+                </a>
 
-        <h2>Contact</h2>
-        <p>Feel free to reach out to me at d@deok.ai or follow/connect with me on <a href="https://www.linkedin.com/in/deokcelmo-filho/">Linkedin</a> or <a href="https://x.com/deok_filho">Twitter</a></p>
+                <a href="https://www.youtube.com/watch?v=2ZWFhV-SC5o" target="_blank" rel="noopener" class="card">
+                    <img src="https://img.youtube.com/vi/2ZWFhV-SC5o/maxresdefault.jpg" alt="Unofficial Video 2" class="card-thumbnail">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Video</div>
+                            <h3 class="card-title">Unofficial Content 2</h3>
+                            <div class="card-meta">YouTube</div>
+                        </div>
+                        <p class="card-description">More unofficial glimpses into the journey.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=5n_v9NJ1BOA" target="_blank" rel="noopener" class="card">
+                    <img src="https://img.youtube.com/vi/5n_v9NJ1BOA/maxresdefault.jpg" alt="Unofficial Video 3" class="card-thumbnail">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-tag">Video</div>
+                            <h3 class="card-title">Unofficial Content 3</h3>
+                            <div class="card-meta">YouTube</div>
+                        </div>
+                        <p class="card-description">Personal adventures and experiences captured on video.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Deok Filho. All rights reserved.</p>
+        </footer>
     </div>
+
+    <script>
+        function revealSecretSection() {
+            const section = document.getElementById('unofficial-section');
+            const button = document.querySelector('.suspicious-button');
+            section.classList.add('revealed');
+            button.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
